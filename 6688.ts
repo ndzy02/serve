@@ -24,6 +24,25 @@ app.use(
     optionsSuccessStatus: 200
   })
 );
+// 正常返回数据
+app.get('/test1', (req, res) => {
+  setTimeout(() => {
+    res.send({
+      status: '0',
+      data: 'ok'
+    });
+  }, 1000);
+});
+
+// 登录过期
+app.get('/test2', (req, res) => {
+  setTimeout(() => {
+    res.send({
+      status: '100',
+      data: 'ok'
+    });
+  }, 1000);
+});
 
 app.listen(app.get('port'), () => {
   console.log(` app listening on port ${app.get('port')}!`);
